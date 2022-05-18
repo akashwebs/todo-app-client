@@ -2,9 +2,9 @@ import React from 'react';
 
 const Tasks = () => {
     return (
-        <div className='px-20 my-12'>
+        <div className='px-4 lg:px-20 my-12'>
             <div class="overflow-x-auto">
-                <table class="table w-full">
+            <table class="table w-full">
                  
                     <thead>
                         <tr className='text-center'>
