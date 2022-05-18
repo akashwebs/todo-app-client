@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Tasks = () => {
+
+    const [tasks, setTasks]=useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/todo')
+    },[])
+    
     return (
         <div className='px-4 lg:px-20 my-12'>
             <div class="overflow-x-auto">
