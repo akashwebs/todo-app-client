@@ -5,7 +5,9 @@ import Tasks from './Tasks';
 
 const Home = () => {
     const { register, handleSubmit,reset } = useForm();
+
     const onSubmit =async task => {
+        task.isComplete=false;
         const {data} =await axios.post(`http://localhost:5000/addtask`,task)
         reset();
     };
