@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Task from './Task';
 
-const Tasks = () => {
+const Tasks = ({reloadTask}) => {
 
     const [tasks, setTasks]=useState([])
     const [complete, setcomplete]=useState(true);
@@ -9,13 +9,13 @@ const Tasks = () => {
         fetch('http://localhost:5000/todo')
         .then(res=>res.json())
         .then(data=>setTasks(data))
-    },[complete])
+    },[complete,reloadTask])
     
     return (
-        <div className='px-4 lg:px-20 my-12'>
-            {tasks.length}
-            <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div id='mytask' className='px-4 lg:px-20 my-12'>
+           
+            <div className="overflow-x-auto">
+            <table className="table w-full">
                  
                     <thead>
                         <tr className='text-center'>

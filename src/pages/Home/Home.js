@@ -1,30 +1,31 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Tasks from './Tasks';
 
 const Home = () => {
     const { register, handleSubmit,reset } = useForm();
-
+    const [reloadTask, setReloadTask]=useState(false)
     const onSubmit =async task => {
         task.isComplete=false;
         const {data} =await axios.post(`http://localhost:5000/addtask`,task)
         reset();
+        setReloadTask(!reloadTask)
     };
     return (
         <div className='text-center'>
-            <h2 className='text-2xl'>this is home</h2>
+            <h2 className='text-2xl my-4'>Add My Task</h2>
     
 
             <div className='flex justify-center'>
                 <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-2'>
-                    <input {...register("taskname")} type="text" placeholder="Task Name" class="input input-bordered w-screen max-w-lg" />
-                    <textarea {...register("description")} class="textarea textarea-bordered" placeholder="Description"></textarea>
-                    <button class="btn btn-secondary text-white">Add task</button>
+                    <input {...register("taskname")} type="text" placeholder="Task Name" className="input input-bordered w-screen max-w-lg" />
+                    <textarea {...register("description")} className="textarea textarea-bordered" placeholder="Description"></textarea>
+                    <button className="btn btn-secondary text-white">Add task</button>
                 </form>
             </div>
-            <div class="divider px-20">My Task</div>
-            <Tasks></Tasks>
+            <div className="divider px-20">My Task</div>
+            <Tasks reloadTask={reloadTask}></Tasks>
         </div>
     );
 };

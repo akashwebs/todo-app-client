@@ -15,14 +15,14 @@ const Navbar = () => {
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/appointment'>Add Task</Link></li>
-        <li><Link to='/about'>My Task</Link></li>
+        <li><Link to='/'>Add Task</Link></li>
+        <li><Link to='#mytask'>My Task</Link></li>
         <li>{user?.email ? <span onClick={logout}>log out</span> : <Link to='/login'>Login</Link>}</li>
     </>
 
 
     return (
-        <div className="navbar bg-base-100 px-20">
+        <div className="navbar bg-base-100 lg:px-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
