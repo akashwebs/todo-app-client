@@ -6,7 +6,7 @@ const Tasks = ({reloadTask}) => {
     const [tasks, setTasks]=useState([])
     const [complete, setcomplete]=useState(true);
     useEffect(()=>{
-        fetch('http://localhost:5000/todo')
+        fetch('https://warm-inlet-18241.herokuapp.com/todo')
         .then(res=>res.json())
         .then(data=>setTasks(data))
     },[complete,reloadTask])

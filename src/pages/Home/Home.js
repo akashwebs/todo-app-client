@@ -8,7 +8,7 @@ const Home = () => {
     const [reloadTask, setReloadTask]=useState(false)
     const onSubmit =async task => {
         task.isComplete=false;
-        const {data} =await axios.post(`http://localhost:5000/addtask`,task)
+        const {data} =await axios.post(`https://warm-inlet-18241.herokuapp.com/addtask`,task)
         reset();
         setReloadTask(!reloadTask)
     };

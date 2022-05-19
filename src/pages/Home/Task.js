@@ -8,7 +8,7 @@ const Task = ({task,setcomplete,complete}) => {
     const handleCompelte=async(task)=>{
         if(task.isComplete){return}
         task.isComplete=true;
-        const {data}=axios.put(`http://localhost:5000/complete?id=${task._id}`,task)
+        const {data}=axios.put(`https://warm-inlet-18241.herokuapp.com/complete?id=${task._id}`,task)
         setcomplete(!complete)
         
         if(!isComplete){
@@ -17,7 +17,7 @@ const Task = ({task,setcomplete,complete}) => {
     }
     
     const handleDelete=id=>{
-        const {data}=axios.delete(`http://localhost:5000/taskdelete?id=${task._id}`)
+        const {data}=axios.delete(`https://warm-inlet-18241.herokuapp.com/taskdelete?id=${task._id}`)
         toast('successfully delete')
         setcomplete(!complete)
     }
